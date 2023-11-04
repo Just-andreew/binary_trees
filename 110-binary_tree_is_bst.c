@@ -32,9 +32,9 @@ int cross_a_tree(binary_tree_t *root, binary_tree_t *node)
 
 		bst = find_node(root, node);
 		if (node->left)
-			bst &= croos_tree(root, node->left);
+			bst &= cross_a_tree(root, node->left);
 		if (node->right)
-			bst &= croos_tree(root, node->right);
+			bst &= cross_a_tree(root, node->right);
 		return (bst);
 	}
 	return (0);
@@ -48,5 +48,5 @@ int binary_tree_is_bst(const binary_tree_t *tree)
 {
 	if (tree == NULL)
 		return (0);
-	return (croos_tree((binary_tree_t *)tree, (binary_tree_t *)tree));
+	return (cross_a_tree((binary_tree_t *)tree, (binary_tree_t *)tree));
 }
